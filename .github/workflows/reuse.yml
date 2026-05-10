@@ -1,0 +1,53 @@
+# SPDX-License-Identifier: Apache-2.0
+# SPDX-FileCopyrightText: 2026 Aptu Contributors
+
+name: REUSE Compliance
+
+on:
+  push:
+    branches:
+      - main
+    paths: &reuse-paths
+      - '**/*.rs'
+      - '**/*.toml'
+      - '**/*.kt'
+      - '**/*.kts'
+      - '**/*.yml'
+      - 'LICENSES/**'
+      - '.github/workflows/reuse.yml'
+  pull_request:
+    branches:
+      - main
+    paths: *reuse-paths
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions: {}
+
+jobs:
+  reuse:
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
+      - name: Check REUSE compliance
+        uses: fsfe/reuse-action@676e2d560c9a403aa252096d99fcab3e1132b0f5 # v6
+
+  ci-result:
+    name: CI Result
+    runs-on: ubuntu-24.04
+    permissions: {}
+    if: always()
+    needs: [reuse]
+    steps:
+      - name: Verify all jobs passed or were skipped
+        run: |
+          if [[ "${{ contains(needs.*.result, 'failure') || contains(needs.*.result, 'cancelled') }}" == "true" ]]; then
+            echo "::error::One or more CI jobs failed or were cancelled."
+            exit 1
+          fi
+          echo "All CI jobs passed or were skipped."
