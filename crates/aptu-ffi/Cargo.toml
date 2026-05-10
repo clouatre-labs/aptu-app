@@ -9,7 +9,7 @@ repository.workspace = true
 description = "Kotlin FFI bindings for aptu-core via UniFFI"
 publish = false
 [dependencies]
-aptu-core = { path = "../aptu-core" }
+aptu-core = { workspace = true }
 uniffi = { workspace = true }
 tokio = { workspace = true }
 anyhow = { workspace = true }

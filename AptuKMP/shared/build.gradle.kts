@@ -52,7 +52,7 @@ kotlin {
 }
 
 cargo {
-    packageDirectory = layout.projectDirectory.dir("../../crates/aptu-ffi")
+    packageDirectory = layout.projectDirectory.dir("../crates/aptu-ffi")
 }
 
 uniffi {
