@@ -8,6 +8,8 @@ Do not open public issues for sensitive matters.
 
 ### Response SLA
 
+This is a solo-maintained project (see [GOVERNANCE.md](GOVERNANCE.md)). The targets below are best-effort commitments, not contractual guarantees.
+
 | Severity | Triage | Acknowledge | Fix Target | Disclosure |
 |----------|--------|-------------|------------|------------|
 | Critical | 24h    | 24h         | 14 days    | 90 days after fix |
