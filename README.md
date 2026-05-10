@@ -5,8 +5,6 @@
 <h1 align="center">aptu-app</h1>
 
 <p align="center">
-  <a href="https://github.com/clouatre-labs/aptu-app/actions/workflows/ci.yml"><img alt="CI" src="https://img.shields.io/github/actions/workflow/status/clouatre-labs/aptu-app/ci.yml?style=for-the-badge&label=CI&logo=rust" height="20"></a>
-  <a href="https://github.com/clouatre-labs/aptu-app/actions/workflows/android-kmp.yml"><img alt="Android CI" src="https://img.shields.io/github/actions/workflow/status/clouatre-labs/aptu-app/android-kmp.yml?style=for-the-badge&label=Android%20CI&logo=android" height="20"></a>
   <a href="https://api.reuse.software/info/github.com/clouatre-labs/aptu-app"><img alt="REUSE" src="https://img.shields.io/reuse/compliance/github.com/clouatre-labs/aptu-app?style=for-the-badge" height="20"></a>
   <a href="LICENSE"><img alt="License" src="https://img.shields.io/badge/license-Apache--2.0-blue?style=for-the-badge" height="20"></a>
 </p>
