@@ -61,10 +61,12 @@ jobs:
       - name: Format
         run: cargo fmt --check
 
-      - name: Dependency audit
-        uses: EmbarkStudios/cargo-deny-action@34899fc7ba81ca7af6ca16e7c72b76c7f87c8b93 # v2.0.12
+      - name: Install cargo-deny
+        uses: taiki-e/install-action@3fa6878dc4ae603f73960271565a082bf196ab96 # v2.77.2
         with:
-          command: check advisories licenses
+          tool: cargo-deny
+      - name: Dependency audit
+        run: cargo deny check advisories licenses
 
   ci-result:
     name: CI Result
