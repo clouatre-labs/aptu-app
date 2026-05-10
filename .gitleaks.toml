@@ -1,0 +1,11 @@
+# SPDX-FileCopyrightText: 2026 Aptu Contributors
+# SPDX-License-Identifier: Apache-2.0
+
+title = "aptu-app gitleaks config"
+version = "1"
+
+[[allowlists]]
+description = "Intentional hardcoded secrets in test fixtures"
+paths = [
+  '''tests/security_fixtures/vulnerable/'''
+]
