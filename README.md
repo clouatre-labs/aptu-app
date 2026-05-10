@@ -78,8 +78,8 @@ rustup target add aarch64-linux-android
 
 ## Contributing
 
-We welcome contributions. Please read [CONTRIBUTING.md](CONTRIBUTING.md) for coding standards, commit conventions (Conventional Commits, GPG-signed and DCO signed-off), and PR guidelines.
+We welcome contributions. Please read [CONTRIBUTING.md](https://github.com/clouatre-labs/aptu-app/blob/main/CONTRIBUTING.md) for coding standards, commit conventions (Conventional Commits, GPG-signed and DCO signed-off), and PR guidelines.
 
 ## License
 
-Apache-2.0. See [LICENSE](LICENSE).
+Apache-2.0. See [LICENSE](https://github.com/clouatre-labs/aptu-app/blob/main/LICENSE).
