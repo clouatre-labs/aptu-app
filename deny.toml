@@ -1,0 +1,38 @@
+# SPDX-FileCopyrightText: 2026 Aptu Contributors
+# SPDX-License-Identifier: Apache-2.0
+#
+# cargo-deny configuration for aptu-app
+# https://embarkstudios.github.io/cargo-deny/
+
+[advisories]
+version = 2
+ignore = []
+
+[licenses]
+version = 2
+allow = [
+    "Apache-2.0",
+    "Apache-2.0 WITH LLVM-exception",
+    "MIT",
+    "BSD-3-Clause",
+    "BSL-1.0",
+    "ISC",
+    "MPL-2.0",
+    "Unicode-3.0",
+    "Unlicense",
+    "Zlib",
+]
+exceptions = [
+    { allow = ["CDLA-Permissive-2.0"], crate = "webpki-roots" },
+    { allow = ["LGPL-2.1-or-later"], crate = "r-efi" },
+]
+
+[bans]
+multiple-versions = "warn"
+wildcards = "allow"
+
+[sources]
+unknown-registry = "deny"
+# aptu-core is consumed as a git dependency until published to crates.io
+unknown-git = "allow"
+allow-git = ["https://github.com/clouatre-labs/aptu"]
