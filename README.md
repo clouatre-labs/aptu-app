@@ -5,6 +5,7 @@
 <h1 align="center">aptu-app</h1>
 
 <p align="center">
+  <a href="https://github.com/clouatre-labs/aptu-app/actions/workflows/ci.yml"><img alt="CI" src="https://img.shields.io/github/actions/workflow/status/clouatre-labs/aptu-app/ci.yml?style=for-the-badge&label=CI&logo=rust" height="20"></a>
   <a href="https://github.com/clouatre-labs/aptu-app/actions/workflows/android-kmp.yml"><img alt="Android CI" src="https://img.shields.io/github/actions/workflow/status/clouatre-labs/aptu-app/android-kmp.yml?style=for-the-badge&label=Android%20CI&logo=android" height="20"></a>
   <a href="https://api.reuse.software/info/github.com/clouatre-labs/aptu-app"><img alt="REUSE" src="https://img.shields.io/reuse/compliance/github.com/clouatre-labs/aptu-app?style=for-the-badge" height="20"></a>
   <a href="LICENSE"><img alt="License" src="https://img.shields.io/badge/license-Apache--2.0-blue?style=for-the-badge" height="20"></a>
@@ -23,7 +24,7 @@ aptu-app/
 │   ├── iosApp/           # iOS entry point (SwiftUI host -- parked)
 │   └── shared/           # Shared KMP module: business logic, UI, ViewModels
 └── crates/
-    └── aptu-ffi/         # UniFFI Rust bindings exposing aptu-core to Kotlin
+    └── aptu-ffi/         # UniFFI Rust bridge exposing aptu-core to Kotlin
 ```
 
 ## Relationship to clouatre-labs/aptu
@@ -53,7 +54,7 @@ Run unit tests:
 ./gradlew :shared:testDebugUnitTest :androidApp:testDebugUnitTest
 ```
 
-### Rust FFI (Cargo)
+### Rust FFI
 
 ```bash
 cargo build
@@ -67,13 +68,19 @@ rustup target add aarch64-linux-android
 
 ## CI
 
-| Workflow | Trigger | Purpose |
-|----------|---------|---------|
-| `android-kmp.yml` | push/PR (`AptuKMP/**`, `crates/aptu-ffi/**`) | Build and test Android app and Rust FFI bindings |
+| Workflow | Runner | Trigger | Purpose |
+|---|---|---|---|
+| `ci.yml` | `ubuntu-24.04-arm` | push/PR on `crates/**`, `Cargo.*` | Build, test, lint, and audit Rust FFI |
+| `android-kmp.yml` | `ubuntu-24.04` | push/PR on `AptuKMP/**`, `crates/aptu-ffi/**` | Build and test Android app; x86_64 required for NDK host binaries |
+| `ios-kmp.yml` | `macos-15` | `workflow_dispatch` (parked) | iOS simulator build; re-enable once Android is stable |
+| `reuse.yml` | `ubuntu-24.04-arm` | push/PR on source files | REUSE license compliance |
+| `issue-triage.yml` | `ubuntu-24.04-arm` | issue opened | AI triage via aptu action |
+| `pr-review.yml` | `ubuntu-24.04-arm` | PR opened/synchronized | AI PR review via aptu action |
+| `scorecard.yml` | `ubuntu-24.04-arm` | weekly | OpenSSF Scorecard |
 
 ## Contributing
 
-We welcome contributions. Please read [CONTRIBUTING.md](https://github.com/clouatre-labs/aptu/blob/main/CONTRIBUTING.md) from the parent project for coding standards, commit conventions (Conventional Commits, GPG-signed), and PR guidelines.
+We welcome contributions. Please read [CONTRIBUTING.md](CONTRIBUTING.md) for coding standards, commit conventions (Conventional Commits, GPG-signed and DCO signed-off), and PR guidelines.
 
 ## License
 
