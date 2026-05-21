@@ -1,7 +1,4 @@
-# SPDX-License-Identifier: Apache-2.0
-# SPDX-FileCopyrightText: 2026 Aptu Contributors
-
-name: Triage Pull Requests
+name: Review Pull Requests
 
 on:
   pull_request:
@@ -22,8 +19,8 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
 
-      - name: Triage PR
-        uses: clouatre-labs/aptu@v0.5
+      - name: Review PR
+        uses: clouatre-labs/aptu@475e47a210fc7c10bf9a5a4d453c0eeb0e97f9fc # v0.8.1
         continue-on-error: true
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
