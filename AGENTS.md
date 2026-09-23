@@ -8,7 +8,7 @@ Rust 2024 + UniFFI + Gobley | Kotlin Multiplatform + Compose Multiplatform | Gra
 
 ## Workspace Layout
 
-```
+```text
 aptu-app/
 ├── AptuKMP/              # Kotlin Multiplatform application
 │   ├── androidApp/       # Android entry point (Compose Multiplatform)
@@ -35,17 +35,15 @@ cargo deny check advisories licenses
 
 ## CI Runners
 
-All Linux CI jobs run on `ubuntu-24.04-arm` (ARM64) except `android-kmp.yml`, which requires x86_64 NDK host binaries (android/ndk#1752). `ios-kmp.yml` runs on `macos-15` (Apple Silicon, parked).
+All Linux CI jobs run on ARM64 GitHub-hosted runners except `android-kmp.yml`, which requires x86_64 NDK host binaries (android/ndk#1752). `ios-kmp.yml` runs one ARM64 Linux job alongside its `macos-15` job (Apple Silicon, parked).
 
 | Workflow | Runner | Trigger |
 |---|---|---|
-| `ci.yml` | `ubuntu-24.04-arm` | push/PR on `crates/**`, `Cargo.*` |
-| `android-kmp.yml` | `ubuntu-24.04` (x86_64, NDK constraint) | push/PR on `AptuKMP/**`, `crates/aptu-ffi/**` |
-| `ios-kmp.yml` | `macos-15` | `workflow_dispatch` only (parked) |
-| `reuse.yml` | `ubuntu-24.04-arm` | push/PR on source files |
-| `issue-triage.yml` | `ubuntu-24.04-arm` | issue opened |
-| `pr-review.yml` | `ubuntu-24.04-arm` | PR opened/synchronized |
-| `scorecard.yml` | `ubuntu-24.04-arm` | weekly schedule |
+| `ci.yml` | ARM64 Linux | push/PR on `crates/**`, `Cargo.*` |
+| `android-kmp.yml` | x86_64 Linux (NDK constraint) | push/PR on `AptuKMP/**`, `crates/aptu-ffi/**` |
+| `ios-kmp.yml` | `macos-15` + ARM64 Linux | `workflow_dispatch` only (parked) |
+| `reuse.yml` | ARM64 Linux | push/PR on source files |
+| `scorecard.yml` | ARM64 Linux | weekly schedule |
 
 ## Key Conventions
 
