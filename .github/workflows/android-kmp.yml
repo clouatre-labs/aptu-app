@@ -29,15 +29,15 @@ env:
 
 jobs:
   build:
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-26.04
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - name: Set JAVA_HOME to Java 21
         run: echo "JAVA_HOME=$JAVA_HOME_21_X64" >> "$GITHUB_ENV"
       - name: Install Rust toolchain
         # arm64-v8a only: x86_64 doubles Rust compile time with no CI benefit.
-        # Note: ubuntu-24.04 runner uses x86_64 NDK host binaries; ARM64 Linux NDK host
-        # support is not yet available (android/ndk#1752). Stay on ubuntu-24.04 (x86_64).
+        # Note: ubuntu-26.04 runner uses x86_64 NDK host binaries; ARM64 Linux NDK host
+        # support is not yet available (android/ndk#1752). Stay on x86_64 runners.
         uses: dtolnay/rust-toolchain@29eef336d9b2848a0b548edc03f92a220660cdb8 # stable
         with:
           targets: aarch64-linux-android
@@ -64,7 +64,7 @@ jobs:
 
   ci-result:
     name: CI Result
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-26.04
     permissions: {}
     if: always()
     needs: [build]
