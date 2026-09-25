@@ -15,7 +15,7 @@ Living reference mapping every CI workflow and tooling choice to its purpose and
 | `.github/workflows/scorecard.yml` | schedule weekly | OpenSSF Scorecard security posture | Tracks supply-chain security best practices |
 | `.github/workflows/aptu-triage.yml` | `repository_dispatch: types: [aptu-triage]` (dispatched by aptu GitHub App) | Auto-triage new issues via `clouatre-labs/aptu-github-app/.github/workflows/issue-triage.yml@d341c5f20e31b570db8a10136d56ca63af6ded7b # v0.1.8` | GitHub App-driven dispatch (installation tokens, AI provider/model selection) reduces maintainer triage overhead |
 | `.github/workflows/aptu-review.yml` | `repository_dispatch: types: [aptu-review]` (dispatched by aptu GitHub App) | Review PRs via `clouatre-labs/aptu-github-app/.github/workflows/pr-review.yml@d341c5f20e31b570db8a10136d56ca63af6ded7b # v0.1.8` | GitHub App-driven dispatch (installation tokens, AI provider/model selection); review only — labeling lives in the external repo |
-| `.github/workflows/aptu-scan-security.yml` | `repository_dispatch: types: [aptu-scan-security]` (dispatched by aptu GitHub App) | Secret scanning via `clouatre-labs/aptu-github-app/.github/workflows/scan-security.yml@v0.1.8` with `security-events: write` | SARIF upload to code scanning |
+| `.github/workflows/aptu-scan-security.yml` | `repository_dispatch: types: [aptu-scan-security]` (dispatched by aptu GitHub App) | Secret scanning via `clouatre-labs/aptu-github-app/.github/workflows/scan-security.yml@d341c5f20e31b570db8a10136d56ca63af6ded7b # v0.1.8` with `security-events: write` | SARIF upload to code scanning |
 
 ---
 
