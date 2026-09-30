@@ -45,6 +45,10 @@ All Linux CI jobs run on ARM64 GitHub-hosted runners except `android-kmp.yml`, w
 | `reuse.yml` | ARM64 Linux | push/PR on source files |
 | `scorecard.yml` | ARM64 Linux | weekly schedule |
 
+## CI Status
+
+GitHub Actions is **disabled** in this repository (unused at the moment): the workflows above remain defined but do not run. Re-enable with `gh api repos/clouatre-labs/aptu-app/actions/permissions -X PUT --input - <<< '{"enabled":true,"allowed_actions":"all"}'` before relying on any workflow.
+
 ## Key Conventions
 
 - Conventional Commits; GPG + DCO sign every commit (`git commit -S --signoff`)
