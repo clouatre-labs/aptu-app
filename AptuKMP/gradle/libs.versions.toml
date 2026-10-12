@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: Apache-2.0
 
 [versions]
-kotlin = "2.4.20"
+kotlin = "2.4.21"
 agp = "8.13.2"
 compose-multiplatform = "1.12.1"
 compose-bom = "2024.12.01"
