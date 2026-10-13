@@ -11,7 +11,7 @@ coroutines = "1.11.0"
 kvault = "1.12.0"
 androidx-activity-compose = "1.13.0"
 navigation-compose = "2.10.2"
-ktor = "2.3.13"
+ktor = "3.6.0"
 kotlinx-serialization = "1.11.0"
 
 
