@@ -39,7 +39,7 @@ jobs:
         # arm64-v8a only: x86_64 doubles Rust compile time with no CI benefit.
         # Note: ubuntu-26.04 runner uses x86_64 NDK host binaries; ARM64 Linux NDK host
         # support is not yet available (android/ndk#1752). Stay on x86_64 runners.
-        uses: dtolnay/rust-toolchain@686976e191b89faba57d3206551f0f330d8cb249 # stable
+        uses: dtolnay/rust-toolchain@b725eda525362e7cf34af9a7243cac1e3f01a7ec # stable
         with:
           targets: aarch64-linux-android
       - name: Cache Rust artifacts
